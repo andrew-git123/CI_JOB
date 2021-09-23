@@ -24,5 +24,12 @@ pipeline {
                 }
             }
         }
+        stage ('move to S3 bucket') {
+            steps {
+                withMaven(maven : 'apache-maven-3.6.1') {
+                    sh 'aws s3 cp /var/lib/jenkins/workspace/CI_JOB2 s3://andrew1212 --recursive'
+                }
+            }
+        }
     }
-}
+}   
