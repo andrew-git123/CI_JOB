@@ -31,9 +31,11 @@ pipeline {
                 }
             }
         }
-        post {
-               always {
-                  cleanWs()
+        stage ('clean workspace')  {
+            steps {
+                post {
+                   always {
+                       cleanWs()
             }
         }   
     }
