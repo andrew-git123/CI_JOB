@@ -31,7 +31,8 @@ pipeline {
                 }
             }
         }
-        stage ('clean workspace')  {
+         stages {
+           stage ('clean workspace')  {
             steps {
                 post {
                    always {
