@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    post {
+        always {
+            cleanWs()
+        }
+    }  
+}   
     stages {
         stage ('Compile Stage') {
 
@@ -31,14 +37,4 @@ pipeline {
                 }
             }
         }
-         stages {
-           stage("clean workspace") {
-               steps {
-                   withMaven(maven: 'apache-maven-3.6.1') {
-                post {
-                   always {
-                       cleanWs()
-            }
-        }   
-    }
-}    
+    }    
