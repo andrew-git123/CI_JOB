@@ -32,8 +32,9 @@ pipeline {
             }
         }
          stages {
-           stage ('clean workspace')  {
-            steps {
+           stage("clean workspace") {
+               steps {
+                   withMaven(maven: 'apache-maven-3.6.1') {
                 post {
                    always {
                        cleanWs()
