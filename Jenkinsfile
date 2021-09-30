@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    stages {
+        stage('clearWs') {
+            steps {
     post {
         always {
             cleanWs()
