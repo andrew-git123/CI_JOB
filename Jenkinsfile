@@ -28,7 +28,7 @@ pipeline {
         stage ('move to S3 bucket') {
             steps {
                 withMaven(maven : 'apache-maven-3.6.1') {
-                    sh 'aws s3 cp /var/lib/jenkins/workspace/Maven_CI/target/*.jar s3://andrew1212 --recursive --exclude "*" --include "*.jar" --exclude "*/*"'
+                    sh 'aws s3 sync . s3://andrew1212'
                 }
             }
         }
