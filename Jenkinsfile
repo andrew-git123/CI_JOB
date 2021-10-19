@@ -28,7 +28,7 @@ pipeline {
         stage ('move to S3 bucket') {
             steps {
                 withMaven(maven : 'apache-maven-3.6.1') {
-                    sh 'aws s3 sync . s3://andrew1212'
+                    sh 'aws s3 sync . s3://andrew1212 /REST-assured_Cucumber-0.0.1-SNAPSHOT.jar '
                 }
             }
         }
