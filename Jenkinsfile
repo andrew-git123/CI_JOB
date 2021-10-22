@@ -25,10 +25,10 @@ pipeline {
                 }
             }
         }
-        stage ('move to S3 bucket') {
+        stage ('Versioning & Upload') {
             steps {
                 withMaven(maven : 'apache-maven-3.6.1') {
-                    sh 'aws s3 sync . s3://andrew1212'
+                    sh 'Upload_s3.sh'
                 }
             }
         }
